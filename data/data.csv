@@ -1,0 +1,11 @@
+customerRef,customerName,addressLine1,addressLine2,town,county,country,postcode
+CUST1001,John Doe,123 Maple Street,,Springfield,Suffolk,USA,12345
+CUST1002,Jane Smith,456 Oak Avenue,Apt 2,Greenville,Essex,USA,12345
+CUST1003,Alex Johnson,789 Pine Road,Suite 5,Lakeview,Clark,USA,34567
+CUST1004,Emily Turner,101 Birch Lane,Bldg 10,Hilltown,Dane,USA,45678
+CUST1005,David Lee,202 Cedar Blvd,,Rivertown,Grant,USA,56789
+CUST1006,Sarah Martin,303 Elm Street,Floor 3,Mountainville,Adams,USA,67890
+CUST1007,Michael Brown,404 Willow Way,Unit 7,Seaside,Franklin,USA,78901
+CUST1008,Laura Garcia,505 Maple Dr,Top Floor,Sunnyvale,Harris,USA,89012
+CUST1009,Robert Jones,606 Oak Lane,Left Wing,Coldtown,Washington,USA,90123
+CUST1010,Linda Wilson,707 Pine Circle,Rear Building,Oldtown,Jefferson,USA,01234
