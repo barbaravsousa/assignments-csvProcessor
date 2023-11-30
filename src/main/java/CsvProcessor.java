@@ -36,11 +36,12 @@ public class CsvProcessor {
             FileReader fileReader = new FileReader(filePath);
             CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(fileReader);
 
-            if (!parser.getHeaderMap().keySet().equals(expectedHeadersSet)) {
+            if (!parser.getHeaderMap().keySet().containsAll(expectedHeadersSet)) {
                 logger.info("Invalid or missing headers in CSV.");
                 return;
             }
 
+            int counter = 0;
             for (CSVRecord record : parser) {
                 JSONObject json = new JSONObject();
                 json.put("customerRef", record.get("customerRef"));
@@ -55,18 +56,19 @@ public class CsvProcessor {
                 HttpResponse response = sendPostRequest(json.toString());
 
                 if(response.getStatusLine().getStatusCode()==201){
-                    logger.info("Customer was created.");
+                    counter++;
                 }
                 else if (response.getStatusLine().getStatusCode()==400){
-                    logger.info("Customer already exists.");
+                    logger.info(record.get("customerRef") + " customer already exists.");
                 }
                 else {
-                    logger.info("Could not create customer.");
+                    logger.info("Could not create customer " + record.get("customerRef"));
                 }
-
             }
+            logger.info(counter + " customer(s) created.");
+
         } catch (IOException e) {
-            logger.severe("Error: " + e.getMessage());
+            logger.severe(e.getMessage());
         }
     }
 
